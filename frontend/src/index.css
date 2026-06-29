@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+  @apply border-gray-200 dark:border-gray-700;
+}
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-gray-100 dark:bg-gray-900; }
+  ::-webkit-scrollbar-thumb { @apply bg-gray-300 dark:bg-gray-700 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-primary-400; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-primary-600 hover:bg-primary-700 text-white rounded-xl font-medium text-sm transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-xl font-medium text-sm transition-all duration-200 active:scale-95;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-xl font-medium text-sm transition-all duration-200 active:scale-95;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-400 rounded-lg font-medium text-sm transition-all duration-200;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-red-500 hover:bg-red-600 text-white rounded-xl font-medium text-sm transition-all duration-200 active:scale-95;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-sm;
+  }
+
+  .card {
+    @apply bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-card transition-all duration-200;
+  }
+
+  .card-hover {
+    @apply card hover:shadow-card-hover hover:-translate-y-0.5;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 text-xs font-medium rounded-full;
+  }
+
+  .skeleton {
+    @apply animate-pulse bg-gray-200 dark:bg-gray-700 rounded;
+  }
+
+  .glass {
+    @apply bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border border-white/20 dark:border-gray-700/50;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-600 via-accent-purple to-accent-pink bg-clip-text text-transparent;
+  }
+
+  .section-heading {
+    @apply text-2xl font-bold text-gray-900 dark:text-white;
+  }
+}
+
+/* Tiptap editor styles */
+.ProseMirror {
+  @apply min-h-[400px] p-4 outline-none;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  @apply text-gray-900 dark:text-gray-100;
+  content: attr(data-placeholder);
+  float: left;
+  pointer-events: none;
+  height: 0;
+}
+
+.ProseMirror h1 { @apply text-3xl font-bold mt-8 mb-4; }
+.ProseMirror h2 { @apply text-2xl font-bold mt-6 mb-3; }
+.ProseMirror h3 { @apply text-xl font-semibold mt-5 mb-2; }
+.ProseMirror p { @apply mb-4 leading-relaxed; }
+.ProseMirror ul { @apply list-disc list-inside mb-4 space-y-1 pl-4; }
+.ProseMirror ol { @apply list-decimal list-inside mb-4 space-y-1 pl-4; }
+.ProseMirror blockquote {
+  @apply border-l-4 border-primary-500 pl-4 italic text-gray-600 dark:text-gray-400 my-4;
+}
+.ProseMirror pre {
+  @apply bg-gray-900 dark:bg-gray-950 text-gray-100 rounded-xl p-4 overflow-x-auto my-4 text-sm font-mono;
+}
+.ProseMirror code {
+  @apply bg-gray-100 dark:bg-gray-800 text-primary-600 dark:text-primary-400 px-1.5 py-0.5 rounded text-sm font-mono;
+}
+.ProseMirror pre code { @apply bg-transparent text-gray-100 p-0; }
+.ProseMirror img { @apply max-w-full rounded-xl my-4; }
+.ProseMirror a { @apply text-primary-600 dark:text-primary-400 underline; }
+.ProseMirror hr { @apply border-gray-200 dark:border-gray-700 my-6; }
+.ProseMirror table { @apply w-full border-collapse my-4; }
+.ProseMirror th, .ProseMirror td {
+  @apply border border-gray-200 dark:border-gray-700 px-3 py-2 text-sm;
+}
+.ProseMirror th { @apply bg-gray-50 dark:bg-gray-800 font-semibold; }
+
+/* Notification badge */
+.notif-badge {
+  @apply absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-xs rounded-full flex items-center justify-center font-bold;
+}
+
+/* Page transitions */
+.page-enter { @apply animate-fade-in; }
